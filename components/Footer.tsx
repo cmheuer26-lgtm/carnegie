@@ -21,7 +21,7 @@ export default function Footer() {
   return (
     <footer style={{ background: "var(--color-charcoal)", color: "var(--color-cream)" }}>
       {/* Main footer */}
-      <div className="section-container py-20">
+      <div className="section-container py-28">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div className="lg:col-span-1">

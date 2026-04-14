@@ -8,7 +8,7 @@ export default function LocationSection() {
   const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(RESTAURANT.address.full)}`;
 
   return (
-    <section className="py-24 lg:py-32" style={{ background: "var(--color-charcoal)" }}>
+    <section className="py-36 lg:py-52" style={{ background: "var(--color-charcoal)" }}>
       <div className="section-container">
         <motion.div
           className="text-center mb-16"
@@ -20,7 +20,7 @@ export default function LocationSection() {
           <p className="eyebrow mb-4" style={{ color: "var(--color-gold)" }}>
             Find Us
           </p>
-          <h2 className="font-display" style={{ color: "var(--color-cream)", fontSize: "clamp(2rem, 5vw, 3rem)" }}>
+          <h2 className="font-display" style={{ color: "var(--color-cream)", fontSize: "clamp(2.4rem, 5vw, 3.6rem)" }}>
             Come Visit
           </h2>
         </motion.div>

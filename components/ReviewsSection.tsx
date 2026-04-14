@@ -12,7 +12,7 @@ export default function ReviewsSection() {
   const next = () => setCurrent((c) => (c + 1) % REVIEWS.length);
 
   return (
-    <section className="py-24 lg:py-32" style={{ background: "var(--color-beige)" }}>
+    <section className="py-36 lg:py-52" style={{ background: "var(--color-beige)" }}>
       <div className="section-container max-w-3xl mx-auto text-center">
         <motion.p
           className="eyebrow mb-4"
@@ -25,7 +25,7 @@ export default function ReviewsSection() {
         </motion.p>
         <motion.h2
           className="font-display mb-12"
-          style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}
+          style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

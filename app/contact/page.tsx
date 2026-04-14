@@ -43,7 +43,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact grid */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--color-cream)" }}>
+      <section className="py-32 lg:py-44" style={{ background: "var(--color-cream)" }}>
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Info */}

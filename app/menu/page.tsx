@@ -43,7 +43,7 @@ export default function MenuPage() {
         {MENU_SECTIONS.map((section, si) => (
           <section
             key={section.title}
-            className="py-20 lg:py-28"
+            className="py-28 lg:py-36"
             style={{ borderBottom: si < MENU_SECTIONS.length - 1 ? "1px solid rgba(44,44,44,0.08)" : "none" }}
           >
             <div className="section-container">
@@ -81,7 +81,7 @@ export default function MenuPage() {
       </div>
 
       {/* Reserve CTA */}
-      <section className="py-20 text-center" style={{ background: "var(--color-charcoal)" }}>
+      <section className="py-32 text-center" style={{ background: "var(--color-charcoal)" }}>
         <div className="section-container">
           <p className="eyebrow mb-4" style={{ color: "var(--color-gold)" }}>Ready to Dine?</p>
           <h2 className="font-display mb-8" style={{ color: "var(--color-cream)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>

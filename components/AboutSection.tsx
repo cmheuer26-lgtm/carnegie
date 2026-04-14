@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AboutSection() {
   return (
-    <section className="py-24 lg:py-32" style={{ background: "var(--color-cream)" }}>
+    <section className="py-36 lg:py-52" style={{ background: "var(--color-cream)" }}>
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text — left */}
@@ -20,7 +20,7 @@ export default function AboutSection() {
             </p>
             <h2
               className="font-display mb-6"
-              style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}
+              style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
             >
               Carnegie&apos;s —<br />
               <span className="font-script" style={{ color: "var(--color-burgundy)" }}>

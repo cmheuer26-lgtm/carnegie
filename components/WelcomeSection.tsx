@@ -6,12 +6,12 @@ import Link from "next/link";
 export default function WelcomeSection() {
   return (
     <section
-      className="py-24 lg:py-32"
+      className="py-36 lg:py-52"
       style={{ background: "var(--color-cream)" }}
       id="home-about"
     >
       <div className="section-container">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto text-center">
           <motion.p
             className="eyebrow mb-5"
             style={{ color: "var(--color-burgundy)" }}
@@ -25,7 +25,7 @@ export default function WelcomeSection() {
 
           <motion.h2
             className="font-display mb-6"
-            style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 5vw, 3rem)" }}
+            style={{ color: "var(--color-charcoal)", fontSize: "clamp(2.4rem, 5vw, 3.6rem)" }}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -51,8 +51,8 @@ export default function WelcomeSection() {
           </motion.div>
 
           <motion.p
-            className="font-body leading-relaxed mb-12"
-            style={{ color: "var(--color-text-muted)", fontSize: "1.05rem" }}
+            className="font-body leading-relaxed mb-14"
+            style={{ color: "var(--color-text-muted)", fontSize: "1.1rem" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

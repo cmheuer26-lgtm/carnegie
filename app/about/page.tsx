@@ -29,12 +29,12 @@ export default function AboutPage() {
       </section>
 
       {/* The Building */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--color-cream)" }}>
+      <section className="py-32 lg:py-44" style={{ background: "var(--color-cream)" }}>
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="eyebrow mb-4" style={{ color: "var(--color-burgundy)" }}>The Building</p>
-              <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.8rem, 4vw, 2.6rem)" }}>
+              <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
                 A Carnegie Library
               </h2>
               <div className="flex items-center gap-4 mb-6" aria-hidden="true">
@@ -75,7 +75,7 @@ export default function AboutPage() {
       </section>
 
       {/* The Legacy */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--color-beige)" }}>
+      <section className="py-32 lg:py-44" style={{ background: "var(--color-beige)" }}>
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div
@@ -94,7 +94,7 @@ export default function AboutPage() {
             </div>
             <div className="order-1 lg:order-2">
               <p className="eyebrow mb-4" style={{ color: "var(--color-burgundy)" }}>1999 – 2025</p>
-              <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.8rem, 4vw, 2.6rem)" }}>
+              <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
                 Chef Ian Harrison&apos;s Legacy
               </h2>
               <div className="flex items-center gap-4 mb-6" aria-hidden="true">
@@ -123,12 +123,12 @@ export default function AboutPage() {
       </section>
 
       {/* New Chapter */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--color-cream)" }}>
+      <section className="py-32 lg:py-44" style={{ background: "var(--color-cream)" }}>
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="eyebrow mb-4" style={{ color: "var(--color-burgundy)" }}>October 2025</p>
-              <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.8rem, 4vw, 2.6rem)" }}>
+              <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
                 A New Chapter
               </h2>
               <div className="flex items-center gap-4 mb-6" aria-hidden="true">
@@ -172,7 +172,7 @@ export default function AboutPage() {
 
       {/* Reserve CTA */}
       <section
-        className="parallax-section relative py-36 text-center"
+        className="parallax-section relative py-52 lg:py-64 text-center"
         style={{ backgroundImage: "url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&auto=format&fit=crop&q=80)" }}
       >
         <div className="absolute inset-0" style={{ background: "rgba(10,3,3,0.65)" }} />

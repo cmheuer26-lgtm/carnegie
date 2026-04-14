@@ -13,7 +13,7 @@ const GALLERY_IMAGES = [
 
 export default function GallerySection() {
   return (
-    <section className="py-24 lg:py-32" style={{ background: "var(--color-beige)" }}>
+    <section className="py-36 lg:py-48" style={{ background: "var(--color-beige)" }}>
       <div className="section-container mb-16">
         <motion.div
           className="text-center"
@@ -25,7 +25,7 @@ export default function GallerySection() {
           <p className="eyebrow mb-4" style={{ color: "var(--color-burgundy)" }}>
             The Experience
           </p>
-          <h2 className="font-display" style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 5vw, 3rem)" }}>
+          <h2 className="font-display" style={{ color: "var(--color-charcoal)", fontSize: "clamp(2.4rem, 5vw, 3.6rem)" }}>
             A Feast for the Eyes
           </h2>
         </motion.div>

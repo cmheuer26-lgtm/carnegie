@@ -6,7 +6,7 @@ import { RESTAURANT } from "@/lib/constants";
 export default function ParallaxCTA() {
   return (
     <section
-      className="parallax-section relative py-40"
+      className="parallax-section relative py-56 lg:py-72"
       style={{
         backgroundImage:
           "url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&auto=format&fit=crop&q=80)",
@@ -54,7 +54,7 @@ export default function ParallaxCTA() {
 
         <motion.h2
           className="font-display mb-6"
-          style={{ color: "var(--color-cream)", fontSize: "clamp(2.2rem, 6vw, 4rem)" }}
+          style={{ color: "var(--color-cream)", fontSize: "clamp(2.6rem, 6vw, 5rem)" }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

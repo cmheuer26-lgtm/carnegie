@@ -42,10 +42,10 @@ export default function PrivateEventsPage() {
       </section>
 
       {/* Intro */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--color-cream)" }}>
+      <section className="py-32 lg:py-44" style={{ background: "var(--color-cream)" }}>
         <div className="section-container max-w-3xl mx-auto text-center">
           <p className="eyebrow mb-5" style={{ color: "var(--color-burgundy)" }}>The Space</p>
-          <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>
+          <h2 className="font-display mb-6" style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
             The Upstairs Library Room
           </h2>
           <div className="flex items-center justify-center gap-4 mb-8" aria-hidden="true">
@@ -76,11 +76,11 @@ export default function PrivateEventsPage() {
       </section>
 
       {/* Use cases */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--color-beige)" }}>
+      <section className="py-32 lg:py-44" style={{ background: "var(--color-beige)" }}>
         <div className="section-container">
           <div className="text-center mb-14">
             <p className="eyebrow mb-4" style={{ color: "var(--color-burgundy)" }}>Occasions</p>
-            <h2 className="font-display" style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>
+            <h2 className="font-display" style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
               Perfect For
             </h2>
           </div>
@@ -110,11 +110,11 @@ export default function PrivateEventsPage() {
       </section>
 
       {/* Contact form */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--color-charcoal)" }}>
+      <section className="py-32 lg:py-44" style={{ background: "var(--color-charcoal)" }}>
         <div className="section-container max-w-2xl mx-auto">
           <div className="text-center mb-12">
             <p className="eyebrow mb-4" style={{ color: "var(--color-gold)" }}>Inquire</p>
-            <h2 className="font-display" style={{ color: "var(--color-cream)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>
+            <h2 className="font-display" style={{ color: "var(--color-cream)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
               Start Planning
             </h2>
           </div>

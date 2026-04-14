@@ -43,7 +43,7 @@ export default function ThreeImageCards() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.12, duration: 0.7 }}
             className="img-hover relative overflow-hidden"
-            style={{ aspectRatio: "4/3" }}
+            style={{ aspectRatio: "3/4", minHeight: "420px" }}
           >
             {card.external ? (
               <a href={card.href} target="_blank" rel="noopener noreferrer" className="block absolute inset-0">
