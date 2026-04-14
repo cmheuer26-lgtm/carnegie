@@ -53,13 +53,13 @@ export default function PrivateEventsPage() {
             <div className="w-2 h-2 rotate-45" style={{ background: "var(--color-gold)" }} />
             <div className="h-px w-12" style={{ background: "var(--color-gold)", opacity: 0.5 }} />
           </div>
-          <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1.05rem" }}>
+          <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1.05rem" }}>
             Carnegie&apos;s private dining room occupies the historic upper floor of the original Carnegie
             Library — a space that once housed thousands of books and the quiet hum of a community
             learning together. Today, it&apos;s one of the most distinctive private dining spaces in
             Hancock County.
           </p>
-          <p className="font-body leading-relaxed mb-8" style={{ color: "var(--color-text-muted)", fontSize: "1.05rem" }}>
+          <p className="font-body leading-relaxed mb-10" style={{ color: "var(--color-text-muted)", fontSize: "1.05rem" }}>
             With original architectural details, warm candlelight, and the full Carnegie&apos;s menu and
             bar service at your disposal, the upstairs space accommodates intimate gatherings of
             14 or more guests — perfect for celebrations that deserve something truly special.
@@ -84,11 +84,11 @@ export default function PrivateEventsPage() {
               Perfect For
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {useCases.map((uc) => (
               <div
                 key={uc.title}
-                className="p-8"
+                className="p-10"
                 style={{
                   background: "var(--color-cream)",
                   borderTop: "3px solid var(--color-burgundy)",

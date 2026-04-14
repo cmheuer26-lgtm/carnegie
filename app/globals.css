@@ -28,6 +28,7 @@ body {
   background-color: var(--color-cream);
   color: var(--color-text);
   overflow-x: hidden;
+  line-height: 1.65;
 }
 
 .font-display { font-family: 'Playfair Display', serif; }
@@ -139,7 +140,7 @@ body {
 .section-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(1.5rem, 5vw, 3.5rem);
 }
 
 .eyebrow {

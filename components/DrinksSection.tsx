@@ -63,7 +63,7 @@ export default function DrinksSection() {
               </svg>
             </div>
 
-            <p className="font-body leading-relaxed mb-8" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+            <p className="font-body leading-relaxed mb-10" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
               Our bar is celebrated for approachable, well-made cocktails that feel like coming home.
               From the Library Old Fashioned to a thoughtful wine list featuring Napa and Provence
               favorites — drink well, stay a while.

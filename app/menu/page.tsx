@@ -43,11 +43,11 @@ export default function MenuPage() {
         {MENU_SECTIONS.map((section, si) => (
           <section
             key={section.title}
-            className="py-16 lg:py-20"
+            className="py-20 lg:py-28"
             style={{ borderBottom: si < MENU_SECTIONS.length - 1 ? "1px solid rgba(44,44,44,0.08)" : "none" }}
           >
             <div className="section-container">
-              <div className="flex items-center gap-6 mb-10">
+              <div className="flex items-center gap-6 mb-12">
                 <h2
                   className="font-display"
                   style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", flexShrink: 0 }}
@@ -58,11 +58,11 @@ export default function MenuPage() {
                 <div className="w-2 h-2 rotate-45 flex-shrink-0" style={{ background: "var(--color-gold)" }} />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-0">
                 {section.items.map((item) => (
-                  <div key={item.name} className="flex justify-between gap-6 py-4 border-b" style={{ borderColor: "rgba(44,44,44,0.08)" }}>
+                  <div key={item.name} className="flex justify-between gap-6 py-5 border-b" style={{ borderColor: "rgba(44,44,44,0.08)" }}>
                     <div>
-                      <h3 className="font-display text-lg mb-1" style={{ color: "var(--color-charcoal)" }}>
+                      <h3 className="font-display text-lg mb-2" style={{ color: "var(--color-charcoal)" }}>
                         {item.name}
                       </h3>
                       <p className="font-body text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>

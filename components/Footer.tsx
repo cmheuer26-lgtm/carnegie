@@ -21,8 +21,8 @@ export default function Footer() {
   return (
     <footer style={{ background: "var(--color-charcoal)", color: "var(--color-cream)" }}>
       {/* Main footer */}
-      <div className="section-container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="section-container py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="font-script text-4xl mb-2" style={{ color: "var(--color-cream)" }}>
@@ -68,7 +68,7 @@ export default function Footer() {
             <h4 className="eyebrow mb-5" style={{ color: "var(--color-gold)", fontSize: "0.65rem" }}>
               Navigate
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -104,9 +104,9 @@ export default function Footer() {
               <Clock size={10} className="inline mr-1" />
               Hours
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-0">
               {RESTAURANT.hours.map((h) => (
-                <li key={h.day} className="flex justify-between gap-4">
+                <li key={h.day} className="flex justify-between gap-4 py-2 border-b" style={{ borderColor: "rgba(245,240,232,0.06)" }}>
                   <span className="font-mono text-xs" style={{ color: "rgba(245,240,232,0.5)" }}>
                     {h.day.slice(0, 3).toUpperCase()}
                   </span>

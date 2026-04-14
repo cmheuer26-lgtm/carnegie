@@ -42,7 +42,7 @@ export default function ReviewsSection() {
         </div>
 
         {/* Review carousel */}
-        <div className="relative min-h-[180px] flex items-center justify-center mb-10">
+        <div className="relative min-h-[220px] flex items-center justify-center mb-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}

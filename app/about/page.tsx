@@ -41,13 +41,13 @@ export default function AboutPage() {
                 <div className="h-px w-8" style={{ background: "var(--color-gold)", opacity: 0.5 }} />
                 <div className="w-2 h-2 rotate-45" style={{ background: "var(--color-gold)" }} />
               </div>
-              <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+              <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
                 At the turn of the 20th century, industrialist Andrew Carnegie funded the construction
                 of over 2,500 public libraries across the English-speaking world. Greenfield&apos;s Carnegie
                 Library was among them — a stately, dignified building that became the intellectual
                 heart of Hancock County.
               </p>
-              <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+              <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
                 The building carries with it a remarkable footnote: in the very room where our dining
                 tables now sit, Indiana&apos;s beloved poet James Whitcomb Riley — a Greenfield native —
                 once read to children from the stage. The same stage still stands today.
@@ -101,14 +101,14 @@ export default function AboutPage() {
                 <div className="h-px w-8" style={{ background: "var(--color-gold)", opacity: 0.5 }} />
                 <div className="w-2 h-2 rotate-45" style={{ background: "var(--color-gold)" }} />
               </div>
-              <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+              <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
                 In 1999, Chef Ian Harrison transformed the historic Carnegie Library into a restaurant
                 that would define fine dining in central Indiana for over a quarter century. His
                 vision was farm-to-table before the phrase became fashionable — sourcing local
                 ingredients, growing garden herbs, and firing a wood-burning brick oven that became
                 the restaurant&apos;s beating heart.
               </p>
-              <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+              <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
                 Signature dishes like the cream of roasted red bell pepper soup, beef tenderloin
                 medallions, and house-made crème brûlée became beloved traditions — plates that
                 guests returned for year after year, decade after decade.
@@ -135,13 +135,13 @@ export default function AboutPage() {
                 <div className="h-px w-8" style={{ background: "var(--color-gold)", opacity: 0.5 }} />
                 <div className="w-2 h-2 rotate-45" style={{ background: "var(--color-gold)" }} />
               </div>
-              <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+              <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
                 Jake Burgess grew up in Mt. Vernon, Indiana, and got his start cooking at Mozzi&apos;s
                 Pizza in Fortville at the age of 15. He went on to found FoxGardin Kitchen &amp; Ale —
                 one of the most beloved restaurants in Fortville — along with Smoky&apos;s Concession
                 Stand in Lapel and the legendary Bonge&apos;s Tavern.
               </p>
-              <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+              <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
                 When Harrison retired, Burgess and the Burgess Restaurant Group acquired Carnegie&apos;s
                 in August 2025 and undertook thoughtful renovations before reopening in October of
                 that year. The goal: honor every inch of what Harrison built while giving the

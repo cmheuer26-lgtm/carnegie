@@ -35,13 +35,13 @@ export default function AboutSection() {
               </svg>
             </div>
 
-            <p className="font-body leading-relaxed mb-5" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+            <p className="font-body leading-relaxed mb-6" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
               Originally opened in 1999 by Chef Ian Harrison inside the historic Greenfield Carnegie
               Library, Carnegie&apos;s quickly became a destination for exceptional dining. For over 25
               years, Harrison built a legacy of farm-to-table fine dining in one of Hancock County&apos;s
               most beloved buildings.
             </p>
-            <p className="font-body leading-relaxed mb-8" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
+            <p className="font-body leading-relaxed mb-10" style={{ color: "var(--color-text-muted)", fontSize: "1rem" }}>
               In October 2025, the restaurant was lovingly revived under new ownership by Jake
               Burgess and the Burgess Restaurant Group — continuing the legacy while writing its
               next chapter with fresh energy and the same warmth that made Carnegie&apos;s a community

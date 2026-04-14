@@ -52,7 +52,7 @@ export default function ContactPage() {
                 Visit Us
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-10">
                 <div className="flex gap-4">
                   <MapPin size={18} className="mt-1 flex-shrink-0" style={{ color: "var(--color-burgundy)" }} />
                   <div>

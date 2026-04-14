@@ -81,9 +81,9 @@ export default function LocationSection() {
               <Clock size={16} className="inline mr-2" style={{ color: "var(--color-gold)" }} />
               Hours
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-0">
               {RESTAURANT.hours.map((h) => (
-                <li key={h.day} className="flex justify-between gap-4 py-1 border-b" style={{ borderColor: "rgba(245,240,232,0.06)" }}>
+                <li key={h.day} className="flex justify-between gap-4 py-2.5 border-b" style={{ borderColor: "rgba(245,240,232,0.06)" }}>
                   <span className="font-mono text-sm" style={{ color: "rgba(245,240,232,0.5)" }}>
                     {h.day}
                   </span>

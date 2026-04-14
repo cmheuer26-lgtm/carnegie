@@ -14,7 +14,7 @@ const GALLERY_IMAGES = [
 export default function GallerySection() {
   return (
     <section className="py-24 lg:py-32" style={{ background: "var(--color-beige)" }}>
-      <div className="section-container mb-12">
+      <div className="section-container mb-16">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}

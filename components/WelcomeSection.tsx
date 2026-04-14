@@ -11,7 +11,7 @@ export default function WelcomeSection() {
       id="home-about"
     >
       <div className="section-container">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.p
             className="eyebrow mb-5"
             style={{ color: "var(--color-burgundy)" }}
@@ -51,7 +51,7 @@ export default function WelcomeSection() {
           </motion.div>
 
           <motion.p
-            className="font-body leading-relaxed mb-10"
+            className="font-body leading-relaxed mb-12"
             style={{ color: "var(--color-text-muted)", fontSize: "1.05rem" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
