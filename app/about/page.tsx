@@ -16,7 +16,7 @@ export default function AboutPage() {
           minHeight: "50vh",
           display: "flex",
           alignItems: "flex-end",
-          backgroundImage: "url(https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&auto=format&fit=crop&q=80)",
+          backgroundImage: "url(/dining-room.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -92,7 +92,7 @@ export default function AboutPage() {
         <div
           className="split-image"
           style={{
-            backgroundImage: "url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&auto=format&fit=crop&q=80)",
+            backgroundImage: "url(/steak.jpg)",
           }}
         />
       </div>
@@ -102,7 +102,7 @@ export default function AboutPage() {
         <div
           className="split-image"
           style={{
-            backgroundImage: "url(https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=900&auto=format&fit=crop&q=80)",
+            backgroundImage: "url(/pasta.jpg)",
           }}
         />
         <div className="split-content" style={{ background: "var(--dark)" }}>
@@ -134,7 +134,7 @@ export default function AboutPage() {
       <div
         className="tout"
         style={{
-          backgroundImage: "url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&auto=format&fit=crop&q=80)",
+          backgroundImage: "url(/upstairs.jpg)",
         }}
       >
         <div className="tout-overlay" />
