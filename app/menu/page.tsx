@@ -53,9 +53,16 @@ export default function MenuPage() {
             <div className="container">
               {/* Section heading */}
               <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "48px" }}>
-                <h2 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--cream)", flexShrink: 0 }}>
-                  {section.title}
-                </h2>
+                <div style={{ flexShrink: 0 }}>
+                  <h2 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--cream)", lineHeight: 1 }}>
+                    {section.title}
+                  </h2>
+                  {"subtitle" in section && section.subtitle && (
+                    <p style={{ color: "var(--gold)", fontSize: "0.6rem", letterSpacing: "0.28em", textTransform: "uppercase", marginTop: "6px" }}>
+                      {section.subtitle}
+                    </p>
+                  )}
+                </div>
                 <div style={{ flex: 1, height: "1px", background: "var(--c08)" }} />
                 <div style={{ width: "6px", height: "6px", background: "var(--gold)", transform: "rotate(45deg)", flexShrink: 0 }} />
               </div>
