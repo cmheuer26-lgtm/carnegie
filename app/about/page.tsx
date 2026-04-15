@@ -16,7 +16,7 @@ export default function AboutPage() {
           minHeight: "50vh",
           display: "flex",
           alignItems: "flex-end",
-          backgroundImage: "url(/dining-room.jpg)",
+          backgroundImage: "url(/exterior.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -134,7 +134,7 @@ export default function AboutPage() {
       <div
         className="tout"
         style={{
-          backgroundImage: "url(/upstairs.jpg)",
+          backgroundImage: "url(/exterior.jpg)",
         }}
       >
         <div className="tout-overlay" />

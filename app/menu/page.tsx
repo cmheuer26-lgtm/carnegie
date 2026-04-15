@@ -16,7 +16,7 @@ export default function MenuPage() {
           minHeight: "50vh",
           display: "flex",
           alignItems: "flex-end",
-          backgroundImage: "url(/steak.jpg)",
+          backgroundImage: "url(/pasta.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

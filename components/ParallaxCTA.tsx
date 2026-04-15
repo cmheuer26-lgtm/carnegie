@@ -6,7 +6,7 @@ export default function ParallaxCTA() {
   return (
     <section
       className="tout"
-      style={{ backgroundImage: "url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&auto=format&fit=crop&q=80)" }}
+      style={{ backgroundImage: "url(/exterior.jpg)" }}
     >
       <div className="tout-overlay" />
       <div className="tout-content">

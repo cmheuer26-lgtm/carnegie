@@ -4,15 +4,15 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 const SLIDES = [
   {
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&auto=format&fit=crop&q=80",
+    image: "/exterior.jpg",
     label: "Greenfield, Indiana · Est. 1999",
   },
   {
-    image: "https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=1920&auto=format&fit=crop&q=80",
+    image: "/dining-room.jpg",
     label: "New American Cuisine",
   },
   {
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&auto=format&fit=crop&q=80",
+    image: "/upstairs.jpg",
     label: "Private Dining Upstairs",
   },
 ];

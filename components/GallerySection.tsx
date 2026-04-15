@@ -1,12 +1,13 @@
 "use client";
 
 const IMAGES = [
+  { src: "/exterior.jpg", alt: "Carnegie's at night" },
   { src: "/dining-room.jpg", alt: "Carnegie's main dining room" },
+  { src: "/steak.jpg", alt: "Hand-cut steak with mashed potatoes and green beans" },
   { src: "/upstairs.jpg", alt: "Carnegie's upstairs private dining room" },
-  { src: "/steak.jpg", alt: "Hand-cut steak with green beans and mashed potatoes" },
   { src: "/pasta.jpg", alt: "Pasta with grilled fish" },
-  { src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&auto=format&fit=crop&q=80", alt: "Craft cocktail" },
-  { src: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&auto=format&fit=crop&q=80", alt: "Wine service" },
+  { src: "/sandwich.jpg", alt: "Grilled sandwich with chips" },
+  { src: "/sandwich2.jpg", alt: "Open-faced filet with green beans" },
 ];
 
 export default function GallerySection() {

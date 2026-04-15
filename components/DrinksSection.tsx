@@ -35,7 +35,7 @@ export default function DrinksSection() {
         <div className="img-zoom" style={{ overflow: "hidden", order: 1 }}>
           <div
             className="img-bg split-image"
-            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&auto=format&fit=crop&q=80)" }}
+            style={{ backgroundImage: "url(/sandwich2.jpg)" }}
           />
         </div>
       </div>

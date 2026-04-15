@@ -23,7 +23,7 @@ const CARDS = [
     subtitle: "Book via OpenTable",
     href: RESTAURANT.reservationUrl,
     external: true,
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&auto=format&fit=crop&q=80",
+    image: "/dining-room.jpg",
   },
 ];
 
