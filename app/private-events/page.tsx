@@ -26,7 +26,7 @@ export default function PrivateEventsPage() {
           minHeight: "60vh",
           display: "flex",
           alignItems: "flex-end",
-          backgroundImage: "url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&auto=format&fit=crop&q=80)",
+          backgroundImage: "url(/upstairs.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

@@ -38,7 +38,7 @@ export default function AboutPage() {
         <div
           className="split-image"
           style={{
-            backgroundImage: "url(https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=900&auto=format&fit=crop&q=80)",
+            backgroundImage: "url(/dining-room.jpg)",
           }}
         />
         <div className="split-content" style={{ background: "var(--dark)" }}>

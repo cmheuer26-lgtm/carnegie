@@ -1,11 +1,11 @@
 "use client";
 
 const IMAGES = [
-  { src: "https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=800&auto=format&fit=crop&q=80", alt: "Plated entrée" },
-  { src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop&q=80", alt: "Dining room" },
+  { src: "/dining-room.jpg", alt: "Carnegie's main dining room" },
+  { src: "/upstairs.jpg", alt: "Carnegie's upstairs private dining room" },
+  { src: "/steak.jpg", alt: "Hand-cut steak with green beans and mashed potatoes" },
+  { src: "/pasta.jpg", alt: "Pasta with grilled fish" },
   { src: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&auto=format&fit=crop&q=80", alt: "Craft cocktail" },
-  { src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80", alt: "Restaurant interior" },
-  { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80", alt: "Chef's plate" },
   { src: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&auto=format&fit=crop&q=80", alt: "Wine service" },
 ];
 

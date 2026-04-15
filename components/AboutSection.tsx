@@ -13,7 +13,7 @@ export default function AboutSection() {
         >
           <div
             className="img-bg split-image"
-            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=900&auto=format&fit=crop&q=80)" }}
+            style={{ backgroundImage: "url(/dining-room.jpg)" }}
           />
         </div>
 

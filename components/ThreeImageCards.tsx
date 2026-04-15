@@ -9,14 +9,14 @@ const CARDS = [
     subtitle: "Steaks · Pasta · Seafood",
     href: "/menu",
     external: false,
-    image: "https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=900&auto=format&fit=crop&q=80",
+    image: "/steak.jpg",
   },
   {
     title: "Private Dining",
     subtitle: "Intimate Events Upstairs",
     href: "/private-events",
     external: false,
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&auto=format&fit=crop&q=80",
+    image: "/upstairs.jpg",
   },
   {
     title: "Reservations",
