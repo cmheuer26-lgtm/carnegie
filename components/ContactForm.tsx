@@ -1,43 +1,50 @@
 "use client";
 
+const inputStyle = {
+  width: "100%",
+  padding: "14px 18px",
+  background: "var(--card)",
+  border: "1px solid var(--c15)",
+  color: "var(--cream)",
+  fontFamily: "'Josefin Sans',sans-serif",
+  fontSize: "0.82rem",
+  letterSpacing: "0.05em",
+  outline: "none",
+};
+
+const labelStyle = {
+  display: "block",
+  fontFamily: "'Josefin Sans',sans-serif",
+  fontSize: "0.6rem",
+  fontWeight: 400,
+  letterSpacing: "0.32em",
+  textTransform: "uppercase" as const,
+  color: "var(--gold)",
+  marginBottom: "10px",
+};
+
 export default function ContactForm() {
   return (
-    <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-      <div className="grid grid-cols-2 gap-4">
-        {[
-          { label: "Name", type: "text", placeholder: "Your name" },
-          { label: "Phone", type: "tel", placeholder: "(317) 555-0000" },
-        ].map((f) => (
-          <div key={f.label}>
-            <label className="eyebrow block mb-1.5" style={{ color: "var(--color-text-muted)", fontSize: "0.6rem" }}>{f.label}</label>
-            <input
-              type={f.type}
-              placeholder={f.placeholder}
-              className="w-full px-4 py-3 font-body text-sm"
-              style={{ background: "var(--color-beige)", border: "1px solid rgba(44,44,44,0.15)", color: "var(--color-text)", outline: "none" }}
-            />
-          </div>
-        ))}
+    <form onSubmit={(e) => e.preventDefault()} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+        <div>
+          <label style={labelStyle}>Name</label>
+          <input type="text" placeholder="Your name" style={inputStyle} />
+        </div>
+        <div>
+          <label style={labelStyle}>Phone</label>
+          <input type="tel" placeholder="(317) 555-0000" style={inputStyle} />
+        </div>
       </div>
       <div>
-        <label className="eyebrow block mb-1.5" style={{ color: "var(--color-text-muted)", fontSize: "0.6rem" }}>Email</label>
-        <input
-          type="email"
-          placeholder="you@example.com"
-          className="w-full px-4 py-3 font-body text-sm"
-          style={{ background: "var(--color-beige)", border: "1px solid rgba(44,44,44,0.15)", color: "var(--color-text)", outline: "none" }}
-        />
+        <label style={labelStyle}>Email</label>
+        <input type="email" placeholder="you@example.com" style={inputStyle} />
       </div>
       <div>
-        <label className="eyebrow block mb-1.5" style={{ color: "var(--color-text-muted)", fontSize: "0.6rem" }}>Message</label>
-        <textarea
-          rows={4}
-          placeholder="How can we help?"
-          className="w-full px-4 py-3 font-body text-sm resize-none"
-          style={{ background: "var(--color-beige)", border: "1px solid rgba(44,44,44,0.15)", color: "var(--color-text)", outline: "none" }}
-        />
+        <label style={labelStyle}>Message</label>
+        <textarea rows={5} placeholder="How can we help?" style={{ ...inputStyle, resize: "none" }} />
       </div>
-      <button type="submit" className="btn-burgundy w-full justify-center">
+      <button type="submit" className="btn btn-gold" style={{ alignSelf: "flex-start", minWidth: "200px", justifyContent: "center" }}>
         Send Message
       </button>
     </form>

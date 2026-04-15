@@ -2,171 +2,71 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { NAV_LINKS, RESTAURANT } from "@/lib/constants";
+import { RESTAURANT, NAV_LINKS } from "@/lib/constants";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const fn = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const leftLinks = NAV_LINKS.slice(0, 2);
-  const rightLinks = NAV_LINKS.slice(2, 4);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-        style={{
-          background: scrolled ? "rgba(26,26,26,0.98)" : "rgba(26,26,26,0.85)",
-          backdropFilter: "blur(12px)",
-          minHeight: scrolled ? "60px" : "88px",
-          boxShadow: scrolled ? "0 2px 20px rgba(0,0,0,0.4)" : "none",
-        }}
-      >
-        <div className="section-container h-full flex items-center justify-between gap-8">
-          {/* Left nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {leftLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="nav-link">
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+      <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 200, background: scrolled || open ? "rgba(12,12,12,0.98)" : "transparent", borderBottom: scrolled ? "1px solid var(--g15)" : "1px solid transparent", transition: "all 0.4s ease" }}>
+        <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: scrolled ? "68px" : "92px", transition: "height 0.4s ease" }}>
 
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex-shrink-0 text-center"
-            style={{ textDecoration: "none" }}
-          >
-            <div
-              className="font-script leading-none"
-              style={{
-                color: "var(--color-cream)",
-                fontSize: scrolled ? "1.6rem" : "2rem",
-                transition: "font-size 0.5s ease",
-              }}
-            >
+          <Link href="/" onClick={() => setOpen(false)} style={{ textDecoration: "none" }}>
+            <span style={{ fontFamily: "'Josefin Sans',sans-serif", fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--cream)" }}>
               Carnegie&apos;s
-            </div>
-            <div
-              className="eyebrow"
-              style={{
-                color: "var(--color-gold)",
-                fontSize: "0.55rem",
-                letterSpacing: "0.3em",
-                marginTop: "2px",
-              }}
-            >
-              A Place to Eat
-            </div>
+            </span>
           </Link>
 
-          {/* Right nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {rightLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="nav-link">
-                {link.label}
-              </Link>
+          <nav className="hide-mobile" style={{ alignItems: "center", gap: "36px" }}>
+            {NAV_LINKS.map((l) => (
+              <Link key={l.href} href={l.href} className="nav-link">{l.label}</Link>
             ))}
-            <a
-              href={RESTAURANT.reservationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-burgundy"
-              style={{ padding: "0.6rem 1.4rem", fontSize: "0.7rem" }}
-            >
+            <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold" style={{ padding: "11px 26px", fontSize: "0.62rem" }}>
               Reservations
             </a>
           </nav>
 
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-            style={{ color: "var(--color-cream)" }}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          <button className="show-mobile" onClick={() => setOpen(!open)} aria-label="Menu" style={{ background: "none", border: "none", cursor: "pointer", flexDirection: "column", gap: "6px", padding: "8px" }}>
+            {[0, 1, 2].map((i) => (
+              <span key={i} style={{ display: "block", width: "22px", height: "1px", background: "var(--cream)", transition: "all 0.3s", transform: i === 0 && open ? "rotate(45deg) translate(5px,5px)" : i === 2 && open ? "rotate(-45deg) translate(5px,-5px)" : "none", opacity: i === 1 && open ? 0 : 1 }} />
+            ))}
           </button>
         </div>
+
+        {open && (
+          <div style={{ background: "var(--dark)", padding: "48px 24px 120px", borderTop: "1px solid var(--c08)" }}>
+            {NAV_LINKS.map((l) => (
+              <div key={l.href} style={{ marginBottom: "28px" }}>
+                <Link href={l.href} className="nav-link" style={{ fontSize: "0.95rem", letterSpacing: "0.25em" }} onClick={() => setOpen(false)}>{l.label}</Link>
+              </div>
+            ))}
+            <div style={{ marginTop: "40px" }}>
+              <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold" style={{ width: "100%", justifyContent: "center" }} onClick={() => setOpen(false)}>
+                Reservations
+              </a>
+            </div>
+          </div>
+        )}
       </header>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 flex flex-col pt-24 pb-12 px-8"
-            style={{ background: "rgba(26,26,26,0.98)", backdropFilter: "blur(16px)" }}
-          >
-            <div className="flex flex-col items-center gap-8 mt-8">
-              {NAV_LINKS.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.07 }}
-                >
-                  <Link
-                    href={link.href}
-                    className="font-display text-3xl"
-                    style={{ color: "var(--color-cream)", textDecoration: "none" }}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.07 }}
-              >
-                <a
-                  href={RESTAURANT.reservationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-burgundy mt-4"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Reserve a Table
-                </a>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile sticky bottom CTA */}
-      <div
-        className="lg:hidden fixed bottom-0 left-0 right-0 z-50 flex"
-        style={{ height: "54px" }}
-      >
-        <a
-          href={`tel:${RESTAURANT.phoneRaw}`}
-          className="flex-1 flex items-center justify-center font-body text-sm font-semibold tracking-widest uppercase"
-          style={{ background: "var(--color-charcoal)", color: "var(--color-gold)", borderTop: "1px solid rgba(184,150,90,0.3)" }}
-        >
+      <div className="show-mobile" style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 199 }}>
+        <a href={`tel:${RESTAURANT.phoneRaw}`} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", background: "var(--dark)", color: "var(--cream)", fontFamily: "'Josefin Sans',sans-serif", fontSize: "0.6rem", fontWeight: 400, letterSpacing: "0.22em", textTransform: "uppercase", padding: "18px", textDecoration: "none", borderTop: "1px solid var(--c15)" }}>
           Call Us
         </a>
-        <a
-          href={RESTAURANT.reservationUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center font-body text-sm font-semibold tracking-widest uppercase"
-          style={{ background: "var(--color-burgundy)", color: "var(--color-cream)" }}
-        >
+        <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", background: "var(--gold)", color: "var(--black)", fontFamily: "'Josefin Sans',sans-serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase", padding: "18px", textDecoration: "none" }}>
           Reserve
         </a>
       </div>

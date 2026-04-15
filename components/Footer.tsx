@@ -1,175 +1,68 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_LINKS, RESTAURANT } from "@/lib/constants";
-import { MapPin, Phone, Clock } from "lucide-react";
-
-const IconFacebook = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-  </svg>
-);
-const IconInstagram = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-  </svg>
-);
+import { RESTAURANT, NAV_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "var(--color-charcoal)", color: "var(--color-cream)" }}>
-      {/* Main footer */}
-      <div className="section-container py-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+    <footer style={{ background: "var(--dark)", borderTop: "1px solid var(--c08)" }}>
+      <div className="container" style={{ padding: "80px 48px 40px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "64px", marginBottom: "64px" }}>
+
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="font-script text-4xl mb-2" style={{ color: "var(--color-cream)" }}>
+          <div>
+            <div style={{ fontFamily: "'Josefin Sans',sans-serif", fontSize: "0.9rem", fontWeight: 600, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--cream)", marginBottom: "16px" }}>
               Carnegie&apos;s
             </div>
-            <div className="eyebrow mb-4" style={{ color: "var(--color-gold)", fontSize: "0.6rem" }}>
-              A Place to Eat
-            </div>
-            <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "rgba(245,240,232,0.6)" }}>
-              Set inside Greenfield&apos;s historic Carnegie Library, where elegant dining and warm
-              Indiana hospitality have called the same home since 1999.
+            <div className="eyebrow" style={{ marginBottom: "20px" }}>A Place to Eat · Est. 1999</div>
+            <p style={{ color: "var(--c60)", fontSize: "0.82rem", lineHeight: 1.8, marginBottom: "24px" }}>
+              Set inside Greenfield&apos;s historic Carnegie Library — where elegant dining and warm Indiana hospitality have called the same home for over 25 years.
             </p>
-            <div className="flex gap-4">
-              <a
-                href={RESTAURANT.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="transition-colors"
-                style={{ color: "rgba(245,240,232,0.5)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-gold)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,240,232,0.5)")}
-              >
-                <IconFacebook />
-              </a>
-              <a
-                href={RESTAURANT.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="transition-colors"
-                style={{ color: "rgba(245,240,232,0.5)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-gold)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,240,232,0.5)")}
-              >
-                <IconInstagram />
+            <div style={{ display: "flex", gap: "20px" }}>
+              <a href={RESTAURANT.social.instagram} target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: "0.58rem", letterSpacing: "0.18em" }}>Instagram</a>
+              <a href={RESTAURANT.social.facebook} target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: "0.58rem", letterSpacing: "0.18em" }}>Facebook</a>
+            </div>
+          </div>
+
+          {/* Navigate */}
+          <div>
+            <div className="eyebrow" style={{ marginBottom: "24px" }}>Navigate</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {NAV_LINKS.map((l) => (
+                <Link key={l.href} href={l.href} className="nav-link" style={{ fontSize: "0.75rem", color: "var(--c60)" }}>{l.label}</Link>
+              ))}
+              <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: "0.75rem", color: "var(--gold)" }}>
+                Reservations ↗
               </a>
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Hours + Contact */}
           <div>
-            <h4 className="eyebrow mb-5" style={{ color: "var(--color-gold)", fontSize: "0.65rem" }}>
-              Navigate
-            </h4>
-            <ul className="space-y-4">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="font-body text-sm transition-colors"
-                    style={{ color: "rgba(245,240,232,0.6)", textDecoration: "none" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-cream)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,240,232,0.6)")}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <a
-                  href={RESTAURANT.reservationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-body text-sm transition-colors"
-                  style={{ color: "rgba(245,240,232,0.6)", textDecoration: "none" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-gold)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,240,232,0.6)")}
-                >
-                  Reservations ↗
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Hours */}
-          <div>
-            <h4 className="eyebrow mb-5" style={{ color: "var(--color-gold)", fontSize: "0.65rem" }}>
-              <Clock size={10} className="inline mr-1" />
-              Hours
-            </h4>
-            <ul className="space-y-0">
+            <div className="eyebrow" style={{ marginBottom: "24px" }}>Hours & Contact</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
               {RESTAURANT.hours.map((h) => (
-                <li key={h.day} className="flex justify-between gap-4 py-2 border-b" style={{ borderColor: "rgba(245,240,232,0.06)" }}>
-                  <span className="font-mono text-xs" style={{ color: "rgba(245,240,232,0.5)" }}>
-                    {h.day.slice(0, 3).toUpperCase()}
-                  </span>
-                  <span
-                    className="font-body text-xs text-right"
-                    style={{ color: h.open ? "rgba(245,240,232,0.8)" : "rgba(245,240,232,0.35)" }}
-                  >
-                    {h.hours}
-                  </span>
-                </li>
+                <div key={h.day} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: "1px solid var(--c08)" }}>
+                  <span style={{ fontSize: "0.7rem", letterSpacing: "0.1em", color: "var(--c40)", textTransform: "uppercase" }}>{h.day.slice(0, 3)}</span>
+                  <span style={{ fontSize: "0.72rem", color: h.open ? "var(--c60)" : "var(--c40)" }}>{h.hours}</span>
+                </div>
               ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="eyebrow mb-5" style={{ color: "var(--color-gold)", fontSize: "0.65rem" }}>
-              Find Us
-            </h4>
-            <address className="not-italic space-y-3">
-              <div className="flex gap-3">
-                <MapPin size={14} className="mt-0.5 flex-shrink-0" style={{ color: "var(--color-gold)" }} />
-                <span className="font-body text-sm leading-relaxed" style={{ color: "rgba(245,240,232,0.6)" }}>
-                  {RESTAURANT.address.street}<br />
-                  {RESTAURANT.address.city}, {RESTAURANT.address.state} {RESTAURANT.address.zip}
-                </span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <Phone size={14} className="flex-shrink-0" style={{ color: "var(--color-gold)" }} />
-                <a
-                  href={`tel:${RESTAURANT.phoneRaw}`}
-                  className="font-body text-sm transition-colors"
-                  style={{ color: "rgba(245,240,232,0.6)", textDecoration: "none" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-cream)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,240,232,0.6)")}
-                >
-                  {RESTAURANT.phone}
-                </a>
-              </div>
-            </address>
+            </div>
+            <div style={{ marginTop: "20px" }}>
+              <a href={`tel:${RESTAURANT.phoneRaw}`} className="nav-link" style={{ fontSize: "0.75rem", color: "var(--c60)", display: "block", marginBottom: "8px" }}>{RESTAURANT.phone}</a>
+              <p style={{ fontSize: "0.72rem", color: "var(--c40)" }}>{RESTAURANT.address.street}, {RESTAURANT.address.city}, {RESTAURANT.address.state}</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div
-        className="border-t"
-        style={{ borderColor: "rgba(245,240,232,0.08)", background: "rgba(0,0,0,0.3)" }}
-      >
-        <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-body text-xs" style={{ color: "rgba(245,240,232,0.3)" }}>
+        {/* Bottom bar */}
+        <div style={{ borderTop: "1px solid var(--c08)", paddingTop: "28px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
+          <p style={{ fontSize: "0.65rem", letterSpacing: "0.08em", color: "var(--c40)" }}>
             © 2026 Carnegie&apos;s A Place To Eat. All rights reserved.
           </p>
-          <p className="font-body text-xs" style={{ color: "rgba(245,240,232,0.3)" }}>
-            Reservations powered by{" "}
-            <a
-              href={RESTAURANT.reservationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "rgba(184,150,90,0.6)", textDecoration: "none" }}
-            >
-              OpenTable
-            </a>
+          <p style={{ fontSize: "0.65rem", letterSpacing: "0.08em", color: "var(--c40)" }}>
+            Reservations via{" "}
+            <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "none" }}>OpenTable</a>
           </p>
         </div>
       </div>

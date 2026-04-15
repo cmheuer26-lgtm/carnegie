@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { REVIEWS, RESTAURANT } from "@/lib/constants";
 
 export default function ReviewsSection() {
@@ -12,108 +10,59 @@ export default function ReviewsSection() {
   const next = () => setCurrent((c) => (c + 1) % REVIEWS.length);
 
   return (
-    <section className="py-36 lg:py-52" style={{ background: "var(--color-beige)" }}>
-      <div className="section-container max-w-3xl mx-auto text-center">
-        <motion.p
-          className="eyebrow mb-4"
-          style={{ color: "var(--color-burgundy)" }}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Guest Reviews
-        </motion.p>
-        <motion.h2
-          className="font-display mb-12"
-          style={{ color: "var(--color-charcoal)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
+    <section style={{ background: "var(--dark)", padding: "140px 0" }}>
+      <div className="container-sm" style={{ textAlign: "center" }}>
+
+        <div className="eyebrow" style={{ marginBottom: "24px" }}>Guest Reviews</div>
+        <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color: "var(--cream)", marginBottom: "64px" }}>
           What Our Guests Say
-        </motion.h2>
+        </h2>
 
         {/* Stars */}
-        <div className="flex justify-center gap-1 mb-8">
+        <div style={{ display: "flex", justifyContent: "center", gap: "6px", marginBottom: "48px" }}>
           {[...Array(5)].map((_, i) => (
-            <Star key={i} size={18} fill="var(--color-gold)" color="var(--color-gold)" />
+            <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="var(--gold)">
+              <path d="M7 0l1.75 5.25H14l-4.375 3.5L11.375 14 7 10.5 2.625 14l1.75-5.25L0 5.25h5.25z" />
+            </svg>
           ))}
         </div>
 
-        {/* Review carousel */}
-        <div className="relative min-h-[220px] flex items-center justify-center mb-10">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-x-0"
-            >
-              <blockquote
-                className="font-script leading-relaxed mb-6"
-                style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.2rem, 3vw, 1.6rem)" }}
-              >
-                &ldquo;{REVIEWS[current].text}&rdquo;
-              </blockquote>
-              <cite className="not-italic">
-                <p className="eyebrow" style={{ color: "var(--color-burgundy)", fontSize: "0.6rem" }}>
-                  {REVIEWS[current].author} · {REVIEWS[current].source}
-                </p>
-              </cite>
-            </motion.div>
-          </AnimatePresence>
+        {/* Quote */}
+        <div style={{ minHeight: "160px", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "40px", padding: "0 24px" }}>
+          <div>
+            <blockquote style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 300, fontStyle: "italic", fontSize: "clamp(1rem, 2.5vw, 1.35rem)", color: "var(--cream)", lineHeight: 1.7, letterSpacing: "0.02em", marginBottom: "24px" }}>
+              &ldquo;{REVIEWS[current].text}&rdquo;
+            </blockquote>
+            <cite style={{ fontFamily: "'Josefin Sans',sans-serif", fontSize: "0.62rem", fontWeight: 400, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", fontStyle: "normal" }}>
+              {REVIEWS[current].author} &middot; {REVIEWS[current].source}
+            </cite>
+          </div>
         </div>
 
-        {/* Nav arrows */}
-        <div className="flex items-center justify-center gap-6">
-          <button onClick={prev} aria-label="Previous review" style={{ color: "var(--color-text-muted)", background: "none", border: "none", cursor: "pointer" }}>
-            <ChevronLeft size={20} />
+        {/* Controls */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "24px", marginBottom: "72px" }}>
+          <button onClick={prev} aria-label="Previous" style={{ background: "none", border: "1px solid var(--c15)", color: "var(--c60)", cursor: "pointer", width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s" }}>
+            ←
           </button>
-          <div className="flex gap-2">
+          <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
             {REVIEWS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                style={{
-                  width: i === current ? "1.5rem" : "0.4rem",
-                  height: "2px",
-                  background: i === current ? "var(--color-burgundy)" : "rgba(44,44,44,0.25)",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  padding: 0,
-                }}
-              />
+              <button key={i} onClick={() => setCurrent(i)} aria-label={`Review ${i + 1}`} style={{ width: i === current ? "28px" : "6px", height: "1px", background: i === current ? "var(--gold)" : "var(--c40)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.4s ease" }} />
             ))}
           </div>
-          <button onClick={next} aria-label="Next review" style={{ color: "var(--color-text-muted)", background: "none", border: "none", cursor: "pointer" }}>
-            <ChevronRight size={20} />
+          <button onClick={next} aria-label="Next" style={{ background: "none", border: "1px solid var(--c15)", color: "var(--c60)", cursor: "pointer", width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s" }}>
+            →
           </button>
         </div>
 
-        {/* Leave a review CTA */}
-        <motion.div
-          className="mt-12 pt-10 border-t"
-          style={{ borderColor: "rgba(44,44,44,0.12)" }}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <p className="font-body mb-4" style={{ color: "var(--color-text-muted)" }}>
+        {/* CTA */}
+        <div style={{ borderTop: "1px solid var(--c08)", paddingTop: "56px" }}>
+          <p style={{ color: "var(--c40)", fontSize: "0.78rem", letterSpacing: "0.12em", marginBottom: "24px" }}>
             Dined with us recently?
           </p>
-          <a
-            href={RESTAURANT.reservationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-burgundy"
-          >
+          <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
             Leave a Review on OpenTable
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

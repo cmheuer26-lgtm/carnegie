@@ -1,239 +1,191 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { ChevronDown, Pause, Play } from "lucide-react";
-import { HERO_SLIDES } from "@/lib/constants";
 
-const DURATION = 7000;
+const SLIDES = [
+  {
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&auto=format&fit=crop&q=80",
+    label: "Greenfield, Indiana · Est. 1999",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=1920&auto=format&fit=crop&q=80",
+    label: "New American Cuisine",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&auto=format&fit=crop&q=80",
+    label: "Private Dining Upstairs",
+  },
+];
+
+const DURATION = 6000;
 
 export default function HeroSlideshow() {
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [fading, setFading] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const goTo = useCallback(
-    (idx: number) => setCurrent((idx + HERO_SLIDES.length) % HERO_SLIDES.length),
-    []
-  );
-  const next = useCallback(() => goTo(current + 1), [current, goTo]);
+  const advance = useCallback(() => {
+    setFading(true);
+    setTimeout(() => {
+      setCurrent((c) => (c + 1) % SLIDES.length);
+      setFading(false);
+    }, 800);
+  }, []);
 
   useEffect(() => {
-    if (paused) return;
-    timerRef.current = setTimeout(next, DURATION);
-    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-  }, [current, paused, next]);
-
-  const slide = HERO_SLIDES[current];
+    timer.current = setTimeout(advance, DURATION);
+    return () => { if (timer.current) clearTimeout(timer.current); };
+  }, [current, advance]);
 
   return (
     <section
-      className="relative w-full overflow-hidden"
-      style={{ minHeight: "100svh" }}
-      aria-roledescription="carousel"
-      aria-label="Carnegie's highlights"
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "100svh",
+        minHeight: "600px",
+        overflow: "hidden",
+        background: "var(--black)",
+      }}
+      aria-label="Carnegie's hero"
     >
-      {/* Background images */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`bg-${current}`}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.4, ease: "easeInOut" }}
-          aria-hidden="true"
-        >
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
-          {/* Dark overlay — warm candlelight feel */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(10,5,5,0.55) 0%, rgba(10,5,5,0.35) 40%, rgba(10,5,5,0.65) 100%)",
-            }}
-          />
-          {/* Subtle warm vignette */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse at center, transparent 50%, rgba(26,10,10,0.5) 100%)",
-            }}
-          />
-        </motion.div>
-      </AnimatePresence>
+      {/* Slides */}
+      {SLIDES.map((slide, i) => (
+        <div
+          key={slide.image}
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${slide.image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: i === current ? (fading ? 0 : 1) : 0,
+            transition: "opacity 1s ease",
+          }}
+          role="img"
+          aria-label={slide.label}
+        />
+      ))}
 
-      {/* Decorative corner ornament */}
-      <div className="absolute top-24 left-8 opacity-20 hidden lg:block" aria-hidden="true">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="var(--color-gold)" strokeWidth="0.8">
-          <path d="M0 60 L0 0 L60 0" />
-          <path d="M8 52 L8 8 L52 8" />
-        </svg>
-      </div>
-      <div className="absolute top-24 right-8 opacity-20 hidden lg:block rotate-90" aria-hidden="true">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="var(--color-gold)" strokeWidth="0.8">
-          <path d="M0 60 L0 0 L60 0" />
-          <path d="M8 52 L8 8 L52 8" />
-        </svg>
-      </div>
+      {/* Overlay */}
+      <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.52)" }} />
 
-      {/* Content */}
+      {/* Center content */}
       <div
-        className="section-container relative z-10 flex flex-col items-center justify-center text-center"
-        style={{ minHeight: "100svh", paddingTop: "120px", paddingBottom: "120px" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "0 24px",
+        }}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`content-${current}`}
-            className="max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
+        <div
+          style={{
+            fontFamily: "'Josefin Sans',sans-serif",
+            fontSize: "clamp(0.6rem, 1.2vw, 0.72rem)",
+            fontWeight: 400,
+            letterSpacing: "0.42em",
+            textTransform: "uppercase",
+            color: "var(--gold)",
+            marginBottom: "32px",
+          }}
+        >
+          {SLIDES[current].label}
+        </div>
+
+        <div
+          style={{
+            fontFamily: "'Josefin Sans',sans-serif",
+            fontSize: "clamp(3.2rem, 9vw, 7.5rem)",
+            fontWeight: 600,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "var(--cream)",
+            lineHeight: 1,
+            marginBottom: "40px",
+          }}
+        >
+          Carnegie&apos;s
+        </div>
+
+        <div
+          style={{
+            fontFamily: "'Josefin Sans',sans-serif",
+            fontSize: "clamp(0.6rem, 1.2vw, 0.72rem)",
+            fontWeight: 300,
+            letterSpacing: "0.38em",
+            textTransform: "uppercase",
+            color: "var(--c60)",
+            marginBottom: "56px",
+          }}
+        >
+          A Place to Eat · Greenfield, Indiana
+        </div>
+
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center" }}>
+          <a
+            href="https://www.opentable.com/r/carnegies-indianapolis"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-gold"
           >
-            {/* Eyebrow */}
-            <motion.p
-              className="eyebrow mb-5"
-              style={{ color: "var(--color-gold)" }}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-            >
-              {slide.eyebrow}
-            </motion.p>
-
-            {/* Gold ornament divider */}
-            <motion.div
-              className="flex items-center justify-center gap-4 mb-6"
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              aria-hidden="true"
-            >
-              <div className="h-px w-16" style={{ background: "var(--color-gold)", opacity: 0.5 }} />
-              <svg width="12" height="12" viewBox="0 0 12 12" style={{ color: "var(--color-gold)" }}>
-                <path d="M6 0L7.5 4.5L12 6L7.5 7.5L6 12L4.5 7.5L0 6L4.5 4.5Z" fill="currentColor" />
-              </svg>
-              <div className="h-px w-16" style={{ background: "var(--color-gold)", opacity: 0.5 }} />
-            </motion.div>
-
-            {/* Main heading */}
-            <motion.h1
-              className="font-display leading-none mb-4"
-              style={{
-                color: "var(--color-cream)",
-                fontSize: "clamp(3.5rem, 10vw, 7rem)",
-                whiteSpace: "pre-line",
-              }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.8 }}
-            >
-              {slide.heading}
-            </motion.h1>
-
-            {/* Script subheading */}
-            <motion.p
-              className="font-script mb-8"
-              style={{ color: "var(--color-gold-light)", fontSize: "clamp(1.2rem, 3vw, 1.8rem)" }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.38, duration: 0.6 }}
-            >
-              {slide.subheading}
-            </motion.p>
-
-            {/* Body */}
-            <motion.p
-              className="font-body leading-relaxed mx-auto mb-10"
-              style={{
-                color: "rgba(245,240,232,0.75)",
-                fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-                maxWidth: "520px",
-              }}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.48, duration: 0.6 }}
-            >
-              {slide.body}
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.58, duration: 0.6 }}
-            >
-              {"external" in slide.cta && slide.cta.external ? (
-                <a href={slide.cta.href} target="_blank" rel="noopener noreferrer" className="btn-burgundy">
-                  {slide.cta.label}
-                </a>
-              ) : (
-                <Link href={slide.cta.href} className="btn-burgundy">{slide.cta.label}</Link>
-              )}
-              {"external" in slide.ctaSecondary && slide.ctaSecondary.external ? (
-                <a href={slide.ctaSecondary.href} target="_blank" rel="noopener noreferrer" className="btn-outline-gold">
-                  {slide.ctaSecondary.label}
-                </a>
-              ) : (
-                <Link href={slide.ctaSecondary.href} className="btn-outline-gold">{slide.ctaSecondary.label}</Link>
-              )}
-            </motion.div>
-          </motion.div>
-        </AnimatePresence>
+            Reservations
+          </a>
+          <a href="/menu" className="btn btn-cream">
+            View Menu
+          </a>
+        </div>
       </div>
 
-      {/* Slide indicators + pause */}
-      <div className="absolute bottom-20 left-0 right-0 z-20 flex items-center justify-center gap-6">
-        <div className="flex items-center gap-2" role="tablist">
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              role="tab"
-              aria-selected={i === current}
-              aria-label={`Go to slide ${i + 1}`}
-              onClick={() => goTo(i)}
-              style={{
-                width: i === current ? "2rem" : "0.5rem",
-                height: "2px",
-                background: i === current ? "var(--color-gold)" : "rgba(245,240,232,0.3)",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                padding: 0,
-              }}
-            />
-          ))}
-        </div>
-        <button
-          onClick={() => setPaused(!paused)}
-          style={{ color: "rgba(245,240,232,0.4)", background: "none", border: "none", cursor: "pointer" }}
-          aria-label={paused ? "Play slideshow" : "Pause slideshow"}
-        >
-          {paused ? <Play size={12} /> : <Pause size={12} />}
-        </button>
+      {/* Slide indicators */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "40px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          gap: "10px",
+          alignItems: "center",
+        }}
+      >
+        {SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Slide ${i + 1}`}
+            style={{
+              width: i === current ? "32px" : "6px",
+              height: "1px",
+              background: i === current ? "var(--gold)" : "var(--c40)",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              transition: "all 0.4s ease",
+            }}
+          />
+        ))}
       </div>
 
       {/* Scroll cue */}
-      <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1"
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden="true"
+      <div
+        style={{
+          position: "absolute",
+          bottom: "40px",
+          right: "48px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "8px",
+        }}
       >
-        <span className="eyebrow" style={{ color: "rgba(245,240,232,0.3)", fontSize: "0.5rem" }}>Scroll</span>
-        <ChevronDown size={14} style={{ color: "rgba(245,240,232,0.3)" }} />
-      </motion.div>
+        <div style={{ width: "1px", height: "48px", background: "var(--gold)", opacity: 0.5 }} />
+        <span style={{ fontFamily: "'Josefin Sans',sans-serif", fontSize: "0.55rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--c40)", writingMode: "vertical-rl" }}>Scroll</span>
+      </div>
     </section>
   );
 }

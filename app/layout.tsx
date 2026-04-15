@@ -7,11 +7,11 @@ import { RESTAURANT } from "@/lib/constants";
 export const metadata: Metadata = {
   title: {
     default: "Carnegie's A Place To Eat | Greenfield, Indiana",
-    template: "%s | Carnegie's Greenfield",
+    template: "%s | Carnegie's",
   },
   description:
-    "Set inside Greenfield's historic Carnegie Library, Carnegie's offers a timeless New American dining experience. Steaks, pasta, seafood, craft cocktails. Reserve on OpenTable.",
-  keywords: ["Carnegie's", "Greenfield Indiana restaurant", "fine dining Greenfield", "Carnegie Library restaurant", "New American restaurant Indiana"],
+    "Set inside Greenfield's historic Carnegie Library, Carnegie's offers timeless New American dining — steaks, pasta, seafood, craft cocktails, and warm Indiana hospitality.",
+  keywords: ["Carnegie's", "Greenfield Indiana restaurant", "fine dining", "Carnegie Library", "New American"],
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: "Where history meets hospitality. Fine dining inside the historic Carnegie Library.",
   },
   other: {
-    "schema:Restaurant": JSON.stringify({
+    "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Restaurant",
       name: RESTAURANT.name,
@@ -33,24 +33,19 @@ export const metadata: Metadata = {
         postalCode: RESTAURANT.address.zip,
         addressCountry: "US",
       },
-      geo: { "@type": "GeoCoordinates", latitude: RESTAURANT.coordinates.lat, longitude: RESTAURANT.coordinates.lng },
-      servesCuisine: ["American", "New American", "Fine Dining"],
+      servesCuisine: ["American", "New American"],
       priceRange: RESTAURANT.priceRange,
       acceptsReservations: RESTAURANT.reservationUrl,
-      openingHoursSpecification: [
-        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Tuesday", "Wednesday", "Thursday"], opens: "11:00", closes: "21:00" },
-        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Friday", "Saturday"], opens: "11:00", closes: "22:00" },
-      ],
     }),
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col" style={{ background: "var(--color-cream)" }}>
+    <html lang="en">
+      <body>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

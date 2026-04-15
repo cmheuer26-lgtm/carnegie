@@ -1,12 +1,12 @@
 import HeroSlideshow from "@/components/HeroSlideshow";
 import WelcomeSection from "@/components/WelcomeSection";
 import ThreeImageCards from "@/components/ThreeImageCards";
-import DrinksSection from "@/components/DrinksSection";
-import ParallaxCTA from "@/components/ParallaxCTA";
 import AboutSection from "@/components/AboutSection";
-import LocationSection from "@/components/LocationSection";
+import ParallaxCTA from "@/components/ParallaxCTA";
+import DrinksSection from "@/components/DrinksSection";
 import GallerySection from "@/components/GallerySection";
 import ReviewsSection from "@/components/ReviewsSection";
+import LocationSection from "@/components/LocationSection";
 
 export default function HomePage() {
   return (
@@ -14,9 +14,9 @@ export default function HomePage() {
       <HeroSlideshow />
       <WelcomeSection />
       <ThreeImageCards />
-      <DrinksSection />
-      <ParallaxCTA />
       <AboutSection />
+      <ParallaxCTA />
+      <DrinksSection />
       <GallerySection />
       <ReviewsSection />
       <LocationSection />

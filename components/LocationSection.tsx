@@ -1,137 +1,71 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
 import { RESTAURANT } from "@/lib/constants";
 
 export default function LocationSection() {
   const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(RESTAURANT.address.full)}`;
 
   return (
-    <section className="py-36 lg:py-52" style={{ background: "var(--color-charcoal)" }}>
-      <div className="section-container">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="eyebrow mb-4" style={{ color: "var(--color-gold)" }}>
-            Find Us
-          </p>
-          <h2 className="font-display" style={{ color: "var(--color-cream)", fontSize: "clamp(2.4rem, 5vw, 3.6rem)" }}>
-            Come Visit
-          </h2>
-        </motion.div>
+    <section style={{ background: "var(--black)", padding: "140px 0" }}>
+      <div className="container">
+        <div style={{ textAlign: "center", marginBottom: "80px" }}>
+          <div className="eyebrow" style={{ marginBottom: "20px" }}>Find Us</div>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color: "var(--cream)" }}>Come Visit</h2>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
-          {/* Address & Contact */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h3 className="font-display text-xl mb-6" style={{ color: "var(--color-cream)" }}>
-              Address
-            </h3>
-            <div className="space-y-4">
-              <div className="flex gap-3">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0" style={{ color: "var(--color-gold)" }} />
-                <div>
-                  <p className="font-body" style={{ color: "rgba(245,240,232,0.8)" }}>
-                    {RESTAURANT.address.street}
-                  </p>
-                  <p className="font-body" style={{ color: "rgba(245,240,232,0.8)" }}>
-                    {RESTAURANT.address.city}, {RESTAURANT.address.state} {RESTAURANT.address.zip}
-                  </p>
-                  <a
-                    href={mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 mt-2 font-body text-sm transition-colors"
-                    style={{ color: "var(--color-gold)", textDecoration: "none" }}
-                  >
-                    Get Directions <ExternalLink size={11} />
-                  </a>
-                </div>
-              </div>
-              <div className="flex gap-3 items-center">
-                <Phone size={16} className="flex-shrink-0" style={{ color: "var(--color-gold)" }} />
-                <a
-                  href={`tel:${RESTAURANT.phoneRaw}`}
-                  className="font-body transition-colors"
-                  style={{ color: "rgba(245,240,232,0.8)", textDecoration: "none" }}
-                >
-                  {RESTAURANT.phone}
-                </a>
-              </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "64px" }}>
+
+          {/* Address */}
+          <div>
+            <div className="eyebrow" style={{ marginBottom: "28px" }}>Address</div>
+            <p style={{ color: "var(--c60)", fontSize: "0.85rem", lineHeight: 1.9, marginBottom: "16px" }}>
+              {RESTAURANT.address.street}<br />
+              {RESTAURANT.address.city}, {RESTAURANT.address.state} {RESTAURANT.address.zip}
+            </p>
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", fontSize: "0.7rem", letterSpacing: "0.18em", textTransform: "uppercase", textDecoration: "none" }}>
+              Get Directions ↗
+            </a>
+            <div style={{ marginTop: "20px" }}>
+              <a href={`tel:${RESTAURANT.phoneRaw}`} style={{ color: "var(--c60)", fontSize: "0.85rem", textDecoration: "none" }}>
+                {RESTAURANT.phone}
+              </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Hours */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <h3 className="font-display text-xl mb-6" style={{ color: "var(--color-cream)" }}>
-              <Clock size={16} className="inline mr-2" style={{ color: "var(--color-gold)" }} />
-              Hours
-            </h3>
-            <ul className="space-y-0">
+          <div>
+            <div className="eyebrow" style={{ marginBottom: "28px" }}>Hours</div>
+            <div>
               {RESTAURANT.hours.map((h) => (
-                <li key={h.day} className="flex justify-between gap-4 py-2.5 border-b" style={{ borderColor: "rgba(245,240,232,0.06)" }}>
-                  <span className="font-mono text-sm" style={{ color: "rgba(245,240,232,0.5)" }}>
+                <div key={h.day} style={{ display: "flex", justifyContent: "space-between", padding: "10px 0", borderBottom: "1px solid var(--c08)" }}>
+                  <span style={{ fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase", color: h.open ? "var(--c60)" : "var(--c40)" }}>
                     {h.day}
                   </span>
-                  <span
-                    className="font-body text-sm"
-                    style={{ color: h.open ? "rgba(245,240,232,0.85)" : "rgba(245,240,232,0.3)" }}
-                  >
+                  <span style={{ fontSize: "0.75rem", color: h.open ? "var(--c60)" : "var(--c40)" }}>
                     {h.hours}
                   </span>
-                </li>
+                </div>
               ))}
-            </ul>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Reserve */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-col justify-between"
-          >
-            <div>
-              <h3 className="font-display text-xl mb-6" style={{ color: "var(--color-cream)" }}>
-                Reservations
-              </h3>
-              <p className="font-body leading-relaxed mb-8" style={{ color: "rgba(245,240,232,0.55)", fontSize: "0.95rem" }}>
-                We recommend reservations, especially on Friday and Saturday evenings. Walk-ins
-                welcome based on availability.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <a
-                href={RESTAURANT.reservationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-burgundy w-full justify-center"
-              >
+          <div>
+            <div className="eyebrow" style={{ marginBottom: "28px" }}>Reservations</div>
+            <p style={{ color: "var(--c60)", fontSize: "0.85rem", lineHeight: 1.9, marginBottom: "32px" }}>
+              We recommend reservations, especially on Friday and Saturday evenings. Walk-ins are
+              always welcome based on availability.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold" style={{ justifyContent: "center" }}>
                 Book on OpenTable
               </a>
-              <a
-                href={`tel:${RESTAURANT.phoneRaw}`}
-                className="btn-outline-gold w-full justify-center"
-              >
+              <a href={`tel:${RESTAURANT.phoneRaw}`} className="btn btn-cream" style={{ justifyContent: "center" }}>
                 Call to Reserve
               </a>
             </div>
-          </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

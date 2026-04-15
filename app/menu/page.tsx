@@ -3,75 +3,76 @@ import { MENU_SECTIONS, RESTAURANT } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Menu",
-  description: "Explore Carnegie's full menu — starters, soups, pastas, steaks, seafood, and our signature crème brûlée.",
+  description: "Carnegie's full dinner menu — starters, soups, pastas, hand-cut steaks, fresh seafood, and our signature crème brûlée.",
 };
 
 export default function MenuPage() {
   return (
     <>
-      {/* Half-height hero */}
+      {/* Hero */}
       <section
-        className="relative flex items-center justify-center"
         style={{
-          minHeight: "45vh",
+          position: "relative",
+          minHeight: "50vh",
+          display: "flex",
+          alignItems: "flex-end",
           backgroundImage: "url(https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=1920&auto=format&fit=crop&q=80)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0" style={{ background: "rgba(10,3,3,0.65)" }} />
-        <div className="relative z-10 text-center px-6 pt-20">
-          <p className="eyebrow mb-4" style={{ color: "var(--color-gold)" }}>Carnegie&apos;s</p>
-          <h1 className="font-display" style={{ color: "var(--color-cream)", fontSize: "clamp(3rem, 8vw, 5.5rem)" }}>
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.65)" }} />
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingBottom: "80px", paddingTop: "160px" }}>
+          <div className="eyebrow" style={{ marginBottom: "20px" }}>Carnegie&apos;s</div>
+          <h1 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(3rem, 8vw, 6rem)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)", lineHeight: 1 }}>
             Our Menu
           </h1>
-          <p className="font-script mt-3" style={{ color: "var(--color-gold-light)", fontSize: "1.4rem" }}>
+          <p style={{ color: "var(--c60)", fontSize: "0.78rem", letterSpacing: "0.28em", textTransform: "uppercase", marginTop: "16px" }}>
             Seasonal · Chef-Crafted · Locally Inspired
           </p>
         </div>
       </section>
 
       {/* Menu note */}
-      <div className="py-8 text-center" style={{ background: "var(--color-beige)", borderBottom: "1px solid rgba(44,44,44,0.1)" }}>
-        <p className="font-body text-sm" style={{ color: "var(--color-text-muted)" }}>
-          Our menu changes seasonally. Ask your server about tonight&apos;s chef specials.
+      <div style={{ background: "var(--dark)", borderBottom: "1px solid var(--c08)", padding: "24px 0", textAlign: "center" }}>
+        <p style={{ color: "var(--c40)", fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>
+          Our menu changes seasonally — ask your server about tonight&apos;s chef specials
         </p>
       </div>
 
-      {/* Menu sections */}
-      <div style={{ background: "var(--color-cream)" }}>
+      {/* Sections */}
+      <div style={{ background: "var(--black)" }}>
         {MENU_SECTIONS.map((section, si) => (
           <section
             key={section.title}
-            className="py-28 lg:py-36"
-            style={{ borderBottom: si < MENU_SECTIONS.length - 1 ? "1px solid rgba(44,44,44,0.08)" : "none" }}
+            style={{
+              borderBottom: si < MENU_SECTIONS.length - 1 ? "1px solid var(--c08)" : "none",
+              padding: "80px 0",
+            }}
           >
-            <div className="section-container">
-              <div className="flex items-center gap-6 mb-12">
-                <h2
-                  className="font-display"
-                  style={{ color: "var(--color-charcoal)", fontSize: "clamp(1.6rem, 4vw, 2.4rem)", flexShrink: 0 }}
-                >
+            <div className="container">
+              {/* Section heading */}
+              <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "48px" }}>
+                <h2 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--cream)", flexShrink: 0 }}>
                   {section.title}
                 </h2>
-                <div className="h-px flex-1" style={{ background: "rgba(44,44,44,0.12)" }} />
-                <div className="w-2 h-2 rotate-45 flex-shrink-0" style={{ background: "var(--color-gold)" }} />
+                <div style={{ flex: 1, height: "1px", background: "var(--c08)" }} />
+                <div style={{ width: "6px", height: "6px", background: "var(--gold)", transform: "rotate(45deg)", flexShrink: 0 }} />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-0">
+              {/* Items grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0 80px" }}>
                 {section.items.map((item) => (
-                  <div key={item.name} className="flex justify-between gap-6 py-5 border-b" style={{ borderColor: "rgba(44,44,44,0.08)" }}>
-                    <div>
-                      <h3 className="font-display text-lg mb-2" style={{ color: "var(--color-charcoal)" }}>
+                  <div key={item.name} className="menu-item">
+                    <div style={{ flex: 1 }}>
+                      <h3 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "0.88rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--cream)", marginBottom: "6px" }}>
                         {item.name}
                       </h3>
-                      <p className="font-body text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                      <p style={{ color: "var(--c40)", fontSize: "0.78rem", lineHeight: 1.7 }}>
                         {item.description}
                       </p>
                     </div>
-                    <span className="font-mono text-sm flex-shrink-0 mt-1" style={{ color: "var(--color-burgundy)" }}>
-                      {item.price}
-                    </span>
+                    <span className="menu-item-price">{item.price}</span>
                   </div>
                 ))}
               </div>
@@ -80,14 +81,12 @@ export default function MenuPage() {
         ))}
       </div>
 
-      {/* Reserve CTA */}
-      <section className="py-32 text-center" style={{ background: "var(--color-charcoal)" }}>
-        <div className="section-container">
-          <p className="eyebrow mb-4" style={{ color: "var(--color-gold)" }}>Ready to Dine?</p>
-          <h2 className="font-display mb-8" style={{ color: "var(--color-cream)", fontSize: "clamp(1.8rem, 4vw, 2.8rem)" }}>
-            Make a Reservation
-          </h2>
-          <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" className="btn-burgundy">
+      {/* CTA */}
+      <section style={{ background: "var(--dark)", padding: "100px 0", textAlign: "center" }}>
+        <div className="container-sm">
+          <div className="eyebrow" style={{ marginBottom: "20px" }}>Ready to Dine?</div>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color: "var(--cream)", marginBottom: "40px" }}>Make a Reservation</h2>
+          <a href={RESTAURANT.reservationUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
             Book on OpenTable
           </a>
         </div>
