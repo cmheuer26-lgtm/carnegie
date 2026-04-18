@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer style={{ background: "var(--dark)", borderTop: "1px solid var(--c08)" }}>
       <div className="container" style={{ padding: "80px 48px 40px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "64px", marginBottom: "64px" }}>
+        <div className="footer-grid">
 
           {/* Brand */}
           <div>

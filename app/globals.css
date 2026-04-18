@@ -266,6 +266,26 @@ img, video, iframe, svg { max-width: 100%; }
   .show-mobile { display: flex !important; }
 }
 
+/* ─── Footer & Location grids ────────────────────── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+@media (max-width: 768px) {
+  .location-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
 /* ─── Scrollbar ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--black); }

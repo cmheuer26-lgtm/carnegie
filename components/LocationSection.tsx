@@ -13,7 +13,7 @@ export default function LocationSection() {
           <h2 style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)", color: "var(--cream)" }}>Come Visit</h2>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "64px" }}>
+        <div className="location-grid">
 
           {/* Address */}
           <div>
