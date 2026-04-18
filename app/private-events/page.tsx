@@ -80,8 +80,8 @@ export default function PrivateEventsPage() {
       {/* Occasions grid */}
       <section style={{ background: "var(--black)", padding: "100px 0" }}>
         <div className="container">
-          <div style={{ textAlign: "center", marginBottom: "64px" }}>
-            <div className="eyebrow" style={{ marginBottom: "20px" }}>Occasions</div>
+          <div style={{ marginBottom: "64px" }}>
+            <div className="eyebrow" style={{ marginBottom: "16px" }}>Occasions</div>
             <h2 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(1.6rem, 3vw, 2.4rem)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)" }}>
               Perfect For
             </h2>
@@ -99,7 +99,7 @@ export default function PrivateEventsPage() {
                 <h3 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "0.9rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--cream)", marginBottom: "16px" }}>
                   {uc.title}
                 </h3>
-                <p style={{ color: "var(--c40)", fontSize: "0.82rem", lineHeight: 1.8 }}>
+                <p style={{ color: "var(--c60)", fontSize: "0.82rem", lineHeight: 1.8 }}>
                   {uc.desc}
                 </p>
               </div>
@@ -116,9 +116,9 @@ export default function PrivateEventsPage() {
           minHeight: "360px",
         }}
       >
-        <div className="tout-overlay" />
+        <div className="tout-overlay" style={{ background: "rgba(0,0,0,0.72)" }} />
         <div className="container" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-          <p style={{ color: "var(--c60)", fontSize: "0.88rem", lineHeight: 1.9, maxWidth: "600px", margin: "0 auto" }}>
+          <p style={{ color: "var(--cream)", fontSize: "0.95rem", lineHeight: 2, maxWidth: "600px", margin: "0 auto", letterSpacing: "0.06em" }}>
             &ldquo;The private dining room at Carnegie&apos;s is unlike anything else in Hancock County —
             history, elegance, and exceptional food all under one roof.&rdquo;
           </p>
