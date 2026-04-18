@@ -80,7 +80,7 @@ export default function PrivateEventsPage() {
       {/* Occasions grid */}
       <section style={{ background: "var(--black)", padding: "100px 0" }}>
         <div className="container">
-          <div style={{ marginBottom: "64px" }}>
+          <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div className="eyebrow" style={{ marginBottom: "16px" }}>Occasions</div>
             <h2 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(1.6rem, 3vw, 2.4rem)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)" }}>
               Perfect For
@@ -94,6 +94,7 @@ export default function PrivateEventsPage() {
                   background: "var(--dark)",
                   padding: "48px 40px",
                   borderTop: "2px solid var(--gold)",
+                  textAlign: "center",
                 }}
               >
                 <h3 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "0.9rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--cream)", marginBottom: "16px" }}>
