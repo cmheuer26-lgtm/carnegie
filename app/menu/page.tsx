@@ -68,7 +68,7 @@ export default function MenuPage() {
               </div>
 
               {/* Items grid */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "0 80px" }}>
+              <div className="menu-grid">
                 {section.items.map((item) => (
                   <div key={item.name} className="menu-item">
                     <div style={{ flex: 1 }}>

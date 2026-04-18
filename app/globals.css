@@ -20,13 +20,14 @@
 /* ─── Reset ───────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   font-family: 'Josefin Sans', sans-serif;
   background: var(--black);
   color: var(--cream);
   overflow-x: hidden;
+  max-width: 100%;
   font-weight: 300;
   letter-spacing: 0.03em;
   line-height: 1.7;
@@ -217,6 +218,15 @@ h1, h2, h3, h4, h5 {
 .tout-content { position: relative; z-index: 1; text-align: center; padding: 0 24px; }
 
 /* ─── Menu table ──────────────────────────────────── */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 80px;
+}
+@media (max-width: 768px) {
+  .menu-grid { grid-template-columns: 1fr; gap: 0; }
+}
+
 .menu-item {
   display: flex;
   justify-content: space-between;
@@ -233,6 +243,20 @@ h1, h2, h3, h4, h5 {
   flex-shrink: 0;
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  .menu-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .menu-item-price {
+    flex-shrink: unset;
+    font-size: 0.78rem;
+  }
+}
+
+/* ─── Images & embeds ─────────────────────────────── */
+img, video, iframe, svg { max-width: 100%; }
 
 /* ─── Responsive utils ────────────────────────────── */
 .hide-mobile { display: flex; }
