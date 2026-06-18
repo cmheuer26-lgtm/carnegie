@@ -9,7 +9,6 @@ const inputStyle = {
   fontFamily: "'Josefin Sans',sans-serif",
   fontSize: "0.82rem",
   letterSpacing: "0.05em",
-  outline: "none",
 };
 
 const labelStyle = {
@@ -26,7 +25,7 @@ const labelStyle = {
 export default function ContactForm() {
   return (
     <form onSubmit={(e) => e.preventDefault()} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+      <div className="form-row">
         <div>
           <label style={labelStyle}>Name</label>
           <input type="text" placeholder="Your name" style={inputStyle} />

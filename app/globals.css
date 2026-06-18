@@ -286,6 +286,35 @@ img, video, iframe, svg { max-width: 100%; }
   .location-grid { grid-template-columns: 1fr; gap: 48px; }
 }
 
+/* ─── Responsive grid utilities ───────────────────── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; gap: 48px; } }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; gap: 24px; } }
+
+.occasions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+@media (max-width: 900px) { .occasions-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .occasions-grid { grid-template-columns: 1fr; } }
+
+/* ─── Gallery masonry ─────────────────────────────── */
+.masonry { columns: 3; column-gap: 4px; }
+@media (max-width: 900px) { .masonry { columns: 2; } }
+@media (max-width: 600px) { .masonry { columns: 1; } }
+
+/* ─── Focus states (keyboard only) ────────────────── */
+input:focus, textarea:focus, select:focus { outline: none; }
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 /* ─── Scrollbar ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--black); }

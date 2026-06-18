@@ -34,7 +34,7 @@ export default function ContactPage() {
       {/* Contact grid */}
       <section style={{ background: "var(--black)", padding: "100px 0" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px" }}>
+          <div className="two-col">
 
             {/* Left: Info */}
             <div>

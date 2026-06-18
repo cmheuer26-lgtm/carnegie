@@ -11,7 +11,6 @@ const inputStyle = {
   fontFamily: "'Josefin Sans',sans-serif",
   fontSize: "0.82rem",
   letterSpacing: "0.05em",
-  outline: "none",
 };
 
 const labelStyle = {
@@ -28,7 +27,7 @@ const labelStyle = {
 export default function PrivateEventsForm() {
   return (
     <form onSubmit={(e) => e.preventDefault()} style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+      <div className="form-row">
         <div>
           <label style={labelStyle}>Your Name</label>
           <input type="text" placeholder="Jane Smith" style={inputStyle} />
@@ -42,7 +41,7 @@ export default function PrivateEventsForm() {
         <label style={labelStyle}>Email Address</label>
         <input type="email" placeholder="you@example.com" style={inputStyle} />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+      <div className="form-row">
         <div>
           <label style={labelStyle}>Event Date</label>
           <input type="date" style={inputStyle} />

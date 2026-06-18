@@ -86,7 +86,7 @@ export default function PrivateEventsPage() {
               Perfect For
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2px" }}>
+          <div className="occasions-grid">
             {USE_CASES.map((uc) => (
               <div
                 key={uc.title}

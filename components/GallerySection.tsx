@@ -19,7 +19,7 @@ export default function GallerySection() {
       </div>
 
       {/* Masonry */}
-      <div style={{ columns: 3, columnGap: "4px" }}>
+      <div className="masonry">
         {IMAGES.map((img) => (
           <div key={img.src} className="img-zoom" style={{ breakInside: "avoid", marginBottom: "4px", overflow: "hidden" }}>
             <img src={img.src} alt={img.alt} style={{ width: "100%", display: "block" }} loading="lazy" />

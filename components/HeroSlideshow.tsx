@@ -97,7 +97,7 @@ export default function HeroSlideshow() {
           {SLIDES[current].label}
         </div>
 
-        <div
+        <h1
           style={{
             fontFamily: "'Josefin Sans',sans-serif",
             fontSize: "clamp(3.2rem, 9vw, 7.5rem)",
@@ -110,7 +110,7 @@ export default function HeroSlideshow() {
           }}
         >
           Carnegie&apos;s
-        </div>
+        </h1>
 
         <div
           style={{

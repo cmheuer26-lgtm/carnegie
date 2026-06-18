@@ -34,19 +34,13 @@ export default function AboutPage() {
       </section>
 
       {/* The Building */}
-      <div className="split-grid">
-        <div
-          className="split-image"
-          style={{
-            backgroundImage: "url(/dining-room.jpg)",
-          }}
-        />
-        <div className="split-content" style={{ background: "var(--dark)" }}>
+      <section style={{ background: "var(--dark)", padding: "120px 0" }}>
+        <div className="container-sm" style={{ textAlign: "center" }}>
           <div className="eyebrow" style={{ marginBottom: "20px" }}>The Building</div>
           <h2 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)", marginBottom: "32px" }}>
             A Carnegie Library
           </h2>
-          <div style={{ width: "40px", height: "1px", background: "var(--gold)", marginBottom: "32px" }} />
+          <div style={{ width: "40px", height: "1px", background: "var(--gold)", margin: "0 auto 32px" }} />
           <p style={{ color: "var(--c60)", fontSize: "0.88rem", lineHeight: 1.9, marginBottom: "20px" }}>
             At the turn of the 20th century, industrialist Andrew Carnegie funded the construction
             of over 2,500 public libraries across the English-speaking world. Greenfield&apos;s Carnegie
@@ -62,7 +56,7 @@ export default function AboutPage() {
             When you dine at Carnegie&apos;s, you dine inside history.
           </p>
         </div>
-      </div>
+      </section>
 
       {/* The Legacy */}
       <div className="split-grid">
@@ -98,19 +92,13 @@ export default function AboutPage() {
       </div>
 
       {/* New Chapter */}
-      <div className="split-grid">
-        <div
-          className="split-image"
-          style={{
-            backgroundImage: "url(/pasta.jpg)",
-          }}
-        />
-        <div className="split-content" style={{ background: "var(--dark)" }}>
+      <section style={{ background: "var(--dark)", padding: "120px 0", borderTop: "1px solid var(--c08)" }}>
+        <div className="container-sm" style={{ textAlign: "center" }}>
           <div className="eyebrow" style={{ marginBottom: "20px" }}>October 2025</div>
           <h2 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(1.6rem, 3vw, 2.6rem)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)", marginBottom: "32px" }}>
             A New Chapter
           </h2>
-          <div style={{ width: "40px", height: "1px", background: "var(--gold)", marginBottom: "32px" }} />
+          <div style={{ width: "40px", height: "1px", background: "var(--gold)", margin: "0 auto 32px" }} />
           <p style={{ color: "var(--c60)", fontSize: "0.88rem", lineHeight: 1.9, marginBottom: "20px" }}>
             Jake Burgess grew up in Mt. Vernon, Indiana, and got his start cooking at Mozzi&apos;s Pizza
             in Fortville at the age of 15. He went on to found FoxGardin Kitchen &amp; Ale — one of the
@@ -128,7 +116,7 @@ export default function AboutPage() {
             service Carnegie&apos;s has always been known for — the new chapter is well underway.
           </p>
         </div>
-      </div>
+      </section>
 
       {/* Parallax CTA */}
       <div
