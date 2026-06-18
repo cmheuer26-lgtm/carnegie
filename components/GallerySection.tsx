@@ -1,10 +1,7 @@
 "use client";
 
 const IMAGES = [
-  { src: "/exterior.jpg", alt: "Carnegie's at night" },
-  { src: "/dining-room.jpg", alt: "Carnegie's main dining room" },
   { src: "/steak.jpg", alt: "Hand-cut steak with mashed potatoes and green beans" },
-  { src: "/upstairs.jpg", alt: "Carnegie's upstairs private dining room" },
   { src: "/pasta.jpg", alt: "Pasta with grilled fish" },
   { src: "/sandwich.jpg", alt: "Grilled sandwich with chips" },
   { src: "/sandwich2.jpg", alt: "Open-faced filet with green beans" },

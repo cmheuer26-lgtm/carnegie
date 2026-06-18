@@ -35,7 +35,7 @@ export default function MenuPage() {
 
       {/* Menu note */}
       <div style={{ background: "var(--dark)", borderBottom: "1px solid var(--c08)", padding: "24px 0", textAlign: "center" }}>
-        <p style={{ color: "var(--c40)", fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>
+        <p className="container" style={{ color: "var(--c40)", fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>
           Our menu changes seasonally — ask your server about tonight&apos;s chef specials
         </p>
       </div>
