@@ -24,7 +24,7 @@ export default function AboutPage() {
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.65)" }} />
         <div className="container" style={{ position: "relative", zIndex: 1, paddingBottom: "80px", paddingTop: "160px" }}>
           <div className="eyebrow" style={{ marginBottom: "20px" }}>Our Story</div>
-          <h1 style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, fontSize: "clamp(3rem, 8vw, 6rem)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--cream)", lineHeight: 1 }}>
+          <h1 className="page-title" style={{ fontFamily: "'Josefin Sans',sans-serif", fontWeight: 600, textTransform: "uppercase", color: "var(--cream)", lineHeight: 1 }}>
             Carnegie&apos;s
           </h1>
           <p style={{ color: "var(--c60)", fontSize: "0.78rem", letterSpacing: "0.28em", textTransform: "uppercase", marginTop: "16px" }}>

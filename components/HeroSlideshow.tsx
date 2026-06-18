@@ -98,11 +98,10 @@ export default function HeroSlideshow() {
         </div>
 
         <h1
+          className="hero-title"
           style={{
             fontFamily: "'Josefin Sans',sans-serif",
-            fontSize: "clamp(3.2rem, 9vw, 7.5rem)",
             fontWeight: 600,
-            letterSpacing: "0.12em",
             textTransform: "uppercase",
             color: "var(--cream)",
             lineHeight: 1,
