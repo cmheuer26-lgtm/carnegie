@@ -15,7 +15,7 @@ const labelStyle = {
   display: "block",
   fontFamily: "'Josefin Sans',sans-serif",
   fontSize: "0.6rem",
-  fontWeight: 400,
+  fontWeight: 600,
   letterSpacing: "0.32em",
   textTransform: "uppercase" as const,
   color: "var(--gold)",

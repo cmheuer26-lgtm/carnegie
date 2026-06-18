@@ -6,8 +6,8 @@
   --black:      #0c0c0c;
   --dark:       #141414;
   --card:       #1c1c1c;
-  --gold:       #b8965a;
-  --gold-light: #cca96e;
+  --gold:       #d0aa66;
+  --gold-light: #e3c48a;
   --cream:      #f0ebe1;
   --c60:        rgba(240,235,225,0.80);
   --c40:        rgba(240,235,225,0.62);
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5 {
 .eyebrow {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 0.62rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.38em;
   text-transform: uppercase;
   color: var(--gold);
@@ -241,7 +241,7 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.12em;
   color: var(--gold);
   flex-shrink: 0;
-  font-weight: 400;
+  font-weight: 600;
 }
 @media (max-width: 768px) {
   .menu-item {

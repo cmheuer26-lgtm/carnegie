@@ -44,7 +44,7 @@ export default function ContactPage() {
 
               {/* Address */}
               <div style={{ marginBottom: "40px", paddingBottom: "40px", borderBottom: "1px solid var(--c08)" }}>
-                <div style={{ fontSize: "0.6rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "12px" }}>Address</div>
+                <div style={{ fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "12px" }}>Address</div>
                 <p style={{ color: "var(--c60)", fontSize: "0.88rem", lineHeight: 1.7 }}>
                   {RESTAURANT.address.street}<br />
                   {RESTAURANT.address.city}, {RESTAURANT.address.state} {RESTAURANT.address.zip}
@@ -61,7 +61,7 @@ export default function ContactPage() {
 
               {/* Phone */}
               <div style={{ marginBottom: "40px", paddingBottom: "40px", borderBottom: "1px solid var(--c08)" }}>
-                <div style={{ fontSize: "0.6rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "12px" }}>Phone</div>
+                <div style={{ fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "12px" }}>Phone</div>
                 <a
                   href={`tel:${RESTAURANT.phoneRaw}`}
                   style={{ color: "var(--c60)", fontSize: "0.88rem", textDecoration: "none" }}
@@ -72,7 +72,7 @@ export default function ContactPage() {
 
               {/* Hours */}
               <div style={{ marginBottom: "40px", paddingBottom: "40px", borderBottom: "1px solid var(--c08)" }}>
-                <div style={{ fontSize: "0.6rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>Hours</div>
+                <div style={{ fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>Hours</div>
                 <div>
                   {RESTAURANT.hours.map((h) => (
                     <div
@@ -95,7 +95,7 @@ export default function ContactPage() {
 
               {/* Social */}
               <div>
-                <div style={{ fontSize: "0.6rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>Follow Us</div>
+                <div style={{ fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "16px" }}>Follow Us</div>
                 <div style={{ display: "flex", gap: "24px" }}>
                   <a
                     href={RESTAURANT.social.instagram}

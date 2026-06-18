@@ -58,7 +58,7 @@ export default function MenuPage() {
                     {section.title}
                   </h2>
                   {"subtitle" in section && section.subtitle && (
-                    <p style={{ color: "var(--gold)", fontSize: "0.6rem", letterSpacing: "0.28em", textTransform: "uppercase", marginTop: "6px" }}>
+                    <p style={{ color: "var(--gold)", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", marginTop: "6px" }}>
                       {section.subtitle}
                     </p>
                   )}
